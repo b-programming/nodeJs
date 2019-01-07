@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wtfepicfail/nodeJs/issues"
   },
-  "homepage": "https://github.com/wtfepicfail/nodeJs#readme"
+  "homepage": "https://github.com/wtfepicfail/nodeJs#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
