@@ -1,0 +1,3 @@
+const os = var pathObj = path.parse(__filename);
+
+console.log(pathObj);
