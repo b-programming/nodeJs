@@ -43,6 +43,25 @@ const movie = {
  movies.push(movie);
  res.send(movie);
 });
+app.put('/api/zanri/:id', (req, res) => {
+const movie = movies.find(m => m.id === parseInt(req.params.id));
+if (!movie) return res.status(404).send('no matching id');
+
+const { error } = validateMovie(req.body);
+if (error) return res.status(400).send(error.details[0].message);
+
+movie.name = req.body.name;
+movie.zanr = req.body.zanr;
+res.send(movie);
+});
+app.delete('/api/zanri/:id', (req, res) => {
+const movie = movies.find(m => m.id === parseInt(req.params.id));
+if(!movie) return res.status(404).send('no matching id');
+
+const index = movies.indexOf(movie);
+movies.splice(index, 1);
+res.send(movie);
+});
 //port
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening on ${port}...`));
